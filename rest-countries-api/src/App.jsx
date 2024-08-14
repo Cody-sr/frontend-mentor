@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ThemeProvider } from "./contexts/theme";
+import { ThemeButton } from "./components";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [themeMode, setThemeMode] = useState("light");
+
+  const lightMode = () => {
+    setThemeMode("light");
+  };
+
+  const darkMode = () => {
+    setThemeMode("dark");
+  };
+
+  useEffect(() => {
+    document.querySelector("html").className = themeMode;
+  }, [themeMode]);
 
   return (
-    <>
-      <p className="read-the-docs">
+    <ThemeProvider value={{ themeMode, lightMode, darkMode }}>
+      <p className="text-black dark:text-red-500">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+      <ThemeButton />
+    </ThemeProvider>
   );
 }
 
