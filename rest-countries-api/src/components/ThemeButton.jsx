@@ -12,7 +12,7 @@ function ThemeButton() {
     <>
       <label
         htmlFor="themebtn"
-        className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border bg-white px-3 py-1.5 duration-500 dark:bg-gray-700 dark:text-white"
+        className="inline-flex cursor-pointer items-center gap-2 text-white duration-500"
       >
         <input
           type="checkbox"
@@ -29,7 +29,7 @@ function ThemeButton() {
             <MdDarkMode size={24} />
           )}
         </span>
-        <span className="capitalize">{`${themeMode} mode`}</span>
+        <span>{themeMode === "light" ? "light mode" : "dark mode"}</span>
       </label>
     </>
   );

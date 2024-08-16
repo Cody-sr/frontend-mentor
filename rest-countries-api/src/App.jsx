@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "./contexts/theme";
-import { ThemeButton } from "./components";
+import { ThemeButton, SearchInput } from "./components";
 
 function App() {
   const [themeMode, setThemeMode] = useState("light");
@@ -19,10 +19,14 @@ function App() {
 
   return (
     <ThemeProvider value={{ themeMode, lightMode, darkMode }}>
-      <p className="text-black dark:text-red-500">
-        Click on the Vite and React logos to learn more
-      </p>
-      <ThemeButton />
+      <main className="h-svh duration-500 dark:bg-gray-900">
+        <section className="bg-slate-500 py-4">
+          <div className="container flex items-center justify-between">
+            <SearchInput />
+            <ThemeButton />
+          </div>
+        </section>
+      </main>
     </ThemeProvider>
   );
 }
