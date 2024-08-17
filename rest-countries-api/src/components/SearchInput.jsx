@@ -5,12 +5,16 @@ function SearchInput() {
   return (
     <label
       htmlFor="searchbtn"
-      className="inline-flex w-60 items-center gap-1 overflow-hidden rounded-full bg-white p-1"
+      className="inline-flex w-60 items-center gap-1 overflow-hidden rounded-md bg-white p-2 dark:bg-slate-500 dark:text-white"
     >
       <span className="px-1">
         <IoSearch size={18} />
       </span>
-      <input type="search" className="me-0.5 flex-1 focus:outline-none" />
+      <input
+        type="search"
+        inputMode="search"
+        className="me-0.5 flex-1 bg-transparent focus:outline-none"
+      />
     </label>
   );
 }
