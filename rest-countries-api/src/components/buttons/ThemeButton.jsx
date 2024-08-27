@@ -1,13 +1,15 @@
 import React from "react";
-import useTheme from "../contexts/theme";
+import useTheme from "../../contexts/theme";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 function ThemeButton() {
   const { themeMode, lightMode, darkMode } = useTheme();
+
   const handleChange = (e) => {
     const currentTheme = e.currentTarget.checked;
     currentTheme ? darkMode() : lightMode();
   };
+
   return (
     <>
       <label
@@ -29,7 +31,9 @@ function ThemeButton() {
             <MdDarkMode size={24} />
           )}
         </span>
-        <span>{themeMode === "light" ? "light mode" : "dark mode"}</span>
+        <span className="hidden sm:block">
+          {themeMode === "light" ? "light mode" : "dark mode"}
+        </span>
       </label>
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 
-function SearchInput() {
+function InputSearch({ value, handleChange }) {
   return (
     <label
       htmlFor="searchbtn"
@@ -13,10 +13,11 @@ function SearchInput() {
       <input
         type="search"
         inputMode="search"
+        value={value}
+        onChange={handleChange}
         className="me-0.5 flex-1 bg-transparent focus:outline-none"
       />
     </label>
   );
 }
-
-export default SearchInput;
+export default InputSearch;

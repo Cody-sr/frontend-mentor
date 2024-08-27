@@ -1,9 +1,9 @@
 import React from "react";
-import { ThemeButton } from "./index";
+import { ThemeButton } from "../";
 
-function HeaderSection() {
+function Header() {
   return (
-    <header className="bg-slate-500 py-4 text-white">
+    <header className="fixed inset-x-0 top-0 z-10 bg-slate-500 py-4 text-white">
       <div className="container flex items-center justify-between">
         <h1 className="text-2xl font-bold">Where in the World?</h1>
         <ThemeButton />
@@ -12,4 +12,4 @@ function HeaderSection() {
   );
 }
 
-export default HeaderSection;
+export default Header;
