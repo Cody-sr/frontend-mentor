@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMemo } from "react";
-import { data } from "../data/data";
+import { useFetchApi } from "../hooks";
 import { generateCountryPath } from "../utils/generateCountryPath.js";
 import { BackButton } from "../components";
 
@@ -39,6 +39,7 @@ const List = ({ text, title, onClick }) => {
 };
 
 function Countrie() {
+  const { data, error, loading } = useFetchApi();
   const location = useLocation();
   const navigate = useNavigate();
   const country = location.state;
@@ -48,10 +49,15 @@ function Countrie() {
   };
 
   const borderCountries = useMemo(() => {
-    return data.filter((border) =>
-      country?.borders?.includes(border.alpha3Code),
-    );
-  }, [country?.borders]);
+    if (!data || !country?.borders) return [];
+    return country.borders
+      .map((borderCode) => data.find((c) => c.alpha3Code === borderCode))
+      .filter(Boolean);
+  }, [data, country?.borders]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!country) return <div>No country data available</div>;
 
   return (
     <>
@@ -113,16 +119,16 @@ function Countrie() {
                 />
               )}
 
-              {country?.borders && (
+              {borderCountries.length > 0 && (
                 <ListItem
                   className="sm:col-span-2"
                   label={"border countries"}
                   list
                   children={borderCountries.map((item) => (
                     <List
-                      key={item?.name}
-                      title={item?.name}
-                      text={item?.alpha3Code}
+                      key={item.alpha3Code}
+                      title={item.name}
+                      text={item.alpha3Code}
                       onClick={() => handleNavigation(item)}
                     />
                   ))}
