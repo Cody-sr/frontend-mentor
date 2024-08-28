@@ -1,6 +1,6 @@
 import React from "react";
 import useTheme from "../../contexts/theme";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { SunIcon, MoonIcon } from "../../assets/icons";
 
 function ThemeButton() {
   const { themeMode, lightMode, darkMode } = useTheme();
@@ -22,17 +22,18 @@ function ThemeButton() {
           id="themebtn"
           onChange={handleChange}
           checked={themeMode === "dark"}
+          aria-label="Toggle theme"
           hidden
         />
-        <span>
+        <span aria-hidden="true">
           {themeMode === "light" ? (
-            <MdLightMode size={24} />
+            <MoonIcon size={24} />
           ) : (
-            <MdDarkMode size={24} />
+            <SunIcon size={24} />
           )}
         </span>
         <span className="hidden sm:block">
-          {themeMode === "light" ? "light mode" : "dark mode"}
+          {themeMode === "light" ? "Light mode" : "Dark mode"}
         </span>
       </label>
     </>

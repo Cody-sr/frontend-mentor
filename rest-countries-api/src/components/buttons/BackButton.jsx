@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { IoArrowBackOutline } from "react-icons/io5";
+import { BackIcon } from "../../assets/icons";
 
 function BackButton() {
   const navigate = useNavigate();
@@ -10,11 +10,10 @@ function BackButton() {
         type="button"
         className="inline-flex items-center gap-x-2 rounded-md bg-white px-4 py-1 dark:bg-slate-500 dark:text-white"
         onClick={() => navigate(-1)}
+        aria-label="Go back"
       >
-        <span>
-          <IoArrowBackOutline size={18} />
-        </span>
-        <span>back</span>
+        <BackIcon size={18} aria-hidden="true" />
+        <span>Back</span>
       </button>
     </section>
   );

@@ -18,14 +18,19 @@ function Home() {
     <>
       <section className="py-4">
         <div className="container flex items-center justify-between gap-2">
-          <InputSearch value={search} handleChange={handleSearchChange} />
+          <InputSearch
+            value={search}
+            handleChange={handleSearchChange}
+            aria-label="Search countries"
+          />
           <InputSelect
             value={selectedValue}
             handleChange={handleSelectChange}
+            aria-label="Filter countries by region"
           />
         </div>
       </section>
-      <Suspense fallback={<CardSkeleton />}>
+      <Suspense fallback={<CardSkeleton aria-label="Loading countries data" />}>
         <Card countriesData={filteredCountries} />
       </Suspense>
     </>

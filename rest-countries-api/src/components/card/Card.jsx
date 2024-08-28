@@ -17,16 +17,22 @@ function Card({ countriesData = [] }) {
             key={item?.name}
             onClick={() => handleNavigation(item)}
             className="cursor-pointer overflow-hidden rounded-lg bg-white ring-1 ring-white duration-500 dark:bg-slate-500 dark:text-white dark:ring-gray-950"
+            tabIndex="0"
+            role="button"
+            aria-labelledby={`country-${item?.name}`}
           >
             <div className="h-52 w-full overflow-hidden">
               <img
                 src={item?.flag}
                 alt={`${item?.region} flag`}
+                loading="lazy"
                 className="size-full object-cover"
               />
             </div>
             <figcaption className="p-4">
-              <h3 className="text-lg font-bold">{item?.name}</h3>
+              <h3 id={`country-${item?.name}`} className="text-lg font-bold">
+                {item?.name}
+              </h3>
 
               <ul className="pt-4">
                 <li className="space-x-2">
