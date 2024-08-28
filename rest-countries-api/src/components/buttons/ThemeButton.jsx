@@ -14,7 +14,7 @@ function ThemeButton() {
     <>
       <label
         htmlFor="themebtn"
-        className="inline-flex cursor-pointer items-center gap-2 text-white duration-500"
+        className="inline-flex cursor-pointer items-center gap-2 duration-500 dark:text-gray-100"
       >
         <input
           type="checkbox"

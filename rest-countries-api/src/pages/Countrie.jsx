@@ -14,9 +14,9 @@ const ListItem = ({
   return (
     <li className={className}>
       <span
-        className={`${list ? "block" : ""} font-semibold dark:text-white`}
+        className={`${list ? "block" : ""} font-semibold duration-500 dark:text-gray-200`}
       >{`${label}: `}</span>
-      {text && <span className="dark:text-gray-500">{text}</span>}
+      {text && <span className="duration-500 dark:text-gray-200">{text}</span>}
       {list && (
         <ul className="mt-2 inline-flex flex-wrap items-center gap-2">
           {children}
@@ -31,7 +31,7 @@ const List = ({ text, title, onClick }) => {
     <li
       title={title}
       onClick={onClick}
-      className={`${title ? "cursor-pointer" : ""} rounded-md bg-white px-3 py-0.5 text-sm dark:bg-slate-600 dark:text-white`}
+      className={`${title ? "cursor-pointer" : ""} rounded-md bg-white px-3 py-0.5 text-sm duration-500 dark:bg-gray-700 dark:text-gray-200`}
     >
       {text}
     </li>
@@ -73,7 +73,7 @@ function Countrie() {
             />
           </figure>
           <div className="md:col-span-3 md:p-6">
-            <h1 className="text-3xl font-bold dark:text-white">
+            <h1 className="text-3xl font-bold duration-500 dark:text-gray-100">
               {country?.name}
             </h1>
             <ul className="grid gap-2 py-6 capitalize sm:grid-cols-2">

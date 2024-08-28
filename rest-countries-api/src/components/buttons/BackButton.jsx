@@ -8,7 +8,7 @@ function BackButton() {
     <section className="container py-4">
       <button
         type="button"
-        className="inline-flex items-center gap-x-2 rounded-md bg-white px-4 py-1 dark:bg-slate-500 dark:text-white"
+        className="inline-flex items-center gap-x-2 rounded-md bg-white px-4 py-1 duration-500 dark:bg-gray-700 dark:text-gray-200"
         onClick={() => navigate(-1)}
         aria-label="Go back"
       >

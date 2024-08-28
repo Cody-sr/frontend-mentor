@@ -16,7 +16,7 @@ function Card({ countriesData = [] }) {
           <figure
             key={item?.name}
             onClick={() => handleNavigation(item)}
-            className="cursor-pointer overflow-hidden rounded-lg bg-white ring-1 ring-white duration-500 dark:bg-slate-500 dark:text-white dark:ring-gray-950"
+            className="cursor-pointer overflow-hidden rounded-lg bg-white ring-1 ring-white duration-500 dark:bg-gray-700 dark:text-white dark:ring-gray-900"
             tabIndex="0"
             role="button"
             aria-labelledby={`country-${item?.name}`}
@@ -34,18 +34,18 @@ function Card({ countriesData = [] }) {
                 {item?.name}
               </h3>
 
-              <ul className="pt-4">
+              <ul className="pt-4 dark:text-gray-200">
                 <li className="space-x-2">
                   <span className="font-semibold">Population:</span>
-                  <span>{item?.population}</span>
+                  <span className="dark:text-gray-300">{item?.population}</span>
                 </li>
                 <li className="space-x-2">
                   <span className="font-semibold">Region:</span>
-                  <span>{item?.region}</span>
+                  <span className="dark:text-gray-300">{item?.region}</span>
                 </li>
                 <li className="space-x-2">
                   <span className="font-semibold">Capital:</span>
-                  <span>{item?.capital}</span>
+                  <span className="dark:text-gray-300">{item?.capital}</span>
                 </li>
               </ul>
             </figcaption>

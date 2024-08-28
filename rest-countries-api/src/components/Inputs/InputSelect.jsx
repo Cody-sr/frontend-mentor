@@ -11,7 +11,7 @@ function InputSelect({ value, handleChange }) {
         name="countries"
         value={value}
         onChange={handleChange}
-        className="cursor-pointer rounded-md bg-white px-3 py-2 focus:outline-none dark:bg-slate-500 dark:text-white"
+        className="cursor-pointer rounded-md bg-white px-3 py-2 duration-500 focus:outline-none dark:bg-gray-700 dark:text-gray-200"
         aria-label="Select Region"
       >
         {regions.map((item) => (

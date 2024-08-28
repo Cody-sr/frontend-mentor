@@ -23,7 +23,7 @@ function Root() {
       <ScrollRestoration />
       <Header />
       <main
-        className="min-h-svh bg-slate-100 px-2 py-20 duration-500 dark:bg-gray-900"
+        className="min-h-svh bg-gray-100 px-2 py-20 duration-500 dark:bg-gray-800"
         aria-live="polite"
       >
         <Outlet />
