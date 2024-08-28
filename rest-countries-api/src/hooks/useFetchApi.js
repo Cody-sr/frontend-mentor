@@ -9,7 +9,7 @@ function useFetchApi() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/src/assets/api/data.json");
+        const response = await axios.get("/api/data.json");
         setData(response.data);
       } catch (err) {
         setError(err);
