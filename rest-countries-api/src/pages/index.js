@@ -1,6 +1,8 @@
-import Countrie from "./Countrie";
-import ErrorPage from "./ErrorPage";
-import Home from "./Home";
-import Root from "./Root";
+import { lazy } from "react";
+
+const Countrie = lazy(() => import("./Countrie"));
+const ErrorPage = lazy(() => import("./ErrorPage"));
+const Home = lazy(() => import("./Home"));
+const Root = lazy(() => import("./Root"));
 
 export { Home, Root, Countrie, ErrorPage };

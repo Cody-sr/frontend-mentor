@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, Root, Countrie, ErrorPage } from "./pages";
 
@@ -20,7 +21,11 @@ const routes = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={routes} />;
+  return (
+    <Suspense fallback={<h1>loading...</h1>}>
+      <RouterProvider router={routes} />;
+    </Suspense>
+  );
 }
 
 export default App;

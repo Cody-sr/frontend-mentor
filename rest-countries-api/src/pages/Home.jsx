@@ -1,10 +1,11 @@
-import { useState, useCallback, Suspense } from "react";
+import { useState, useCallback, useEffect, Suspense } from "react";
 import { InputSearch, InputSelect, Card, CardSkeleton } from "../components";
 import { useFilteredCountries, useFetchApi } from "../hooks";
 
 function Home() {
   const [selectedValue, setSelectedValue] = useState("");
   const [search, setSearch] = useState("");
+  const [visibleCountries, setVisibleCountries] = useState(12);
 
   const { data, error, isLoading } = useFetchApi();
 
@@ -19,6 +20,24 @@ function Home() {
     (e) => setSelectedValue(e.target.value),
     [],
   );
+
+  const loadMoreCountries = () => {
+    setVisibleCountries((prevVisibleCountries) => prevVisibleCountries + 12);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight
+      )
+        return;
+      loadMoreCountries();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -44,7 +63,9 @@ function Home() {
           <Suspense
             fallback={<CardSkeleton aria-label="Loading countries data" />}
           >
-            <Card countriesData={filteredCountries} />
+            <Card
+              countriesData={filteredCountries.slice(0, visibleCountries)}
+            />
           </Suspense>
         )
       )}
