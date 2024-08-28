@@ -1,12 +1,18 @@
 import { useState, useCallback, Suspense } from "react";
 import { InputSearch, InputSelect, Card, CardSkeleton } from "../components";
-import { useFilteredCountries } from "../hooks/useFilteredCountries";
+import { useFilteredCountries, useFetchApi } from "../hooks";
 
 function Home() {
   const [selectedValue, setSelectedValue] = useState("");
   const [search, setSearch] = useState("");
 
-  const filteredCountries = useFilteredCountries(search, selectedValue);
+  const { data, error, isLoading } = useFetchApi();
+
+  const filteredCountries = useFilteredCountries(
+    data || [],
+    search,
+    selectedValue,
+  );
 
   const handleSearchChange = useCallback((e) => setSearch(e.target.value), []);
   const handleSelectChange = useCallback(
@@ -30,9 +36,18 @@ function Home() {
           />
         </div>
       </section>
-      <Suspense fallback={<CardSkeleton aria-label="Loading countries data" />}>
-        <Card countriesData={filteredCountries} />
-      </Suspense>
+      {error && <div className="container text-red-500">{error.message}</div>}
+      {isLoading ? (
+        <CardSkeleton aria-label="Loading countries data" />
+      ) : (
+        data && (
+          <Suspense
+            fallback={<CardSkeleton aria-label="Loading countries data" />}
+          >
+            <Card countriesData={filteredCountries} />
+          </Suspense>
+        )
+      )}
     </>
   );
 }

@@ -1,7 +1,6 @@
 import { useMemo, useDeferredValue } from "react";
-import { data } from "../data/data";
 
-export function useFilteredCountries(search, selectedValue) {
+export default function useFilteredCountries(data, search, selectedValue) {
   const deferredSearch = useDeferredValue(search);
   const deferredSelected = useDeferredValue(selectedValue);
 
@@ -14,5 +13,5 @@ export function useFilteredCountries(search, selectedValue) {
         item.region.toLowerCase().includes(selectedLower) &&
         item.name.toLowerCase().includes(searchLower),
     );
-  }, [deferredSearch, deferredSelected]);
+  }, [deferredSearch, deferredSelected, data]);
 }
