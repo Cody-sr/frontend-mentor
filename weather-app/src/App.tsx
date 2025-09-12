@@ -3,7 +3,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="bg-primary">
         home page
       </div>
     </>

@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+/**
+ * This is where you can define your custom theme values for Tailwind CSS
+ * using the `@theme` directive. These are CSS Custom Properties that
+ * Tailwind uses to generate utility classes.
+ *
+ * For example, defining `--color-neutral-900` allows you to use
+ * classes like `bg-neutral-900` and `text-neutral-900`.
+ *
+ * @see https://tailwindcss.com/docs/theme#extending-the-default-theme
+ */
+@theme {
+    /* Neutral color palette for backgrounds, text, borders, etc. */
+    --color-neutral-900: hsl(243, 96%, 9%);
+    --color-neutral-800: hsl(243, 27%, 20%);
+    --color-neutral-700: hsl(243, 23%, 24%);
+    --color-neutral-600: hsl(243, 23%, 30%);
+    --color-neutral-300: hsl(240, 6%, 70%);
+    --color-neutral-200: hsl(250, 6%, 84%);
+
+    /* Primary brand and accent colors */
+    --color-secondary: hsl(28, 100%, 52%);
+
+    --color-primary: hsl(233, 67%, 56%);
+    --color-primary-dark: hsl(248, 70%, 36%);
+}
