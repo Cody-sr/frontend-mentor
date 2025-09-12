@@ -11,17 +11,17 @@
  * @see https://tailwindcss.com/docs/theme#extending-the-default-theme
  */
 @theme {
-    /* Neutral color palette for backgrounds, text, borders, etc. */
-    --color-neutral-900: hsl(243, 96%, 9%);
-    --color-neutral-800: hsl(243, 27%, 20%);
-    --color-neutral-700: hsl(243, 23%, 24%);
-    --color-neutral-600: hsl(243, 23%, 30%);
-    --color-neutral-300: hsl(240, 6%, 70%);
-    --color-neutral-200: hsl(250, 6%, 84%);
+  /* Neutral color palette for backgrounds, text, borders, etc. */
+  --color-neutral-900: hsl(243, 96%, 9%);
+  --color-neutral-800: hsl(243, 27%, 20%);
+  --color-neutral-700: hsl(243, 23%, 24%);
+  --color-neutral-600: hsl(243, 23%, 30%);
+  --color-neutral-300: hsl(240, 6%, 70%);
+  --color-neutral-200: hsl(250, 6%, 84%);
 
-    /* Primary brand and accent colors */
-    --color-secondary: hsl(28, 100%, 52%);
+  /* Primary brand and accent colors */
+  --color-secondary: hsl(28, 100%, 52%);
 
-    --color-primary: hsl(233, 67%, 56%);
-    --color-primary-dark: hsl(248, 70%, 36%);
+  --color-primary: hsl(233, 67%, 56%);
+  --color-primary-dark: hsl(248, 70%, 36%);
 }
