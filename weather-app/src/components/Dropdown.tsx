@@ -34,15 +34,15 @@ function Dropdown({ children, className, role, label }: DropdownProps) {
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-x-2.5 rounded-lg cursor-pointer bg-neutral-800 px-3 py-2 text-sm font-medium focus:outline-none group"
+        className="group flex cursor-pointer items-center gap-x-2.5 rounded-lg bg-neutral-800 px-3 py-2 text-sm font-medium focus:outline-none"
       >
         <UnitIcon
-          className="size-4 group-hover:rotate-45 transition-transform duration-300"
+          className="size-4 transition-transform duration-300 group-hover:rotate-45"
           aria-hidden="true"
         />
         <span>{label}</span>
         <UnitDropdownIcon
-          className={`size-3 ${isOpen ? "rotate-180" : ""}`}
+          className={`size-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
           aria-hidden="true"
         />
       </button>
@@ -50,10 +50,10 @@ function Dropdown({ children, className, role, label }: DropdownProps) {
       {/* Dropdown menu, show/hide based on menu state. */}
       {isOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-48 rounded-lg bg-neutral-800 divide-y divide-neutral-600 p-2"
+          className="absolute right-0 z-10 mt-2 w-48 divide-y divide-neutral-600 rounded-lg bg-neutral-800 p-2"
           role={role || "menu"}
           aria-orientation="vertical"
-          aria-labelledby={`${role}-button`}
+          aria-labelledby={`${role || "menu"}-button`}
           tabIndex={-1}
         >
           {children}
